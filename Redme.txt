@@ -1,0 +1,64 @@
+For pip3 installation:
+sudo apt install python3-pip
+
+For virtualenv installation:
+pip install virtualenv
+
+For createing virtual evironment in project back directory:
+virtualenv venv
+
+For django, django restframework and django rest knox installation:
+pip install django djangorestframwork django-rest-knox
+
+
+For npm init in project back directory:
+npm init -y
+
+For installation of webpack and webpack CLI:
+npm i -D webpack webpack-cli   
+
+Note: i for (install) D for (--save-dev) 
+
+----------------------------------------
+
+For install babel loader:
+npm i -D babel-loader
+
+For install babel core:
+npm i -D @babel/core
+
+For install babel preset environment:
+npm i -D @bable/preset-env
+
+For install babel preset react:
+npm i -D @babel/preset-react
+
+For install babel plugin for transform (support) class properties:
+npm i -D babel-plugin-transform-class-properties
+
+/*
+The react package contains only the functionality necessary to define React components. 
+It is typically used together with a React renderer like react-dom for the web, or 
+react-native for the native environments. Note: by default, React will be in development mode.
+*/
+For install react:
+npm i react
+
+For install react-dom:
+npm i react-dom
+
+For runtime type checking for React props and similar objects.
+npm i prop-types
+
+-------- Setup in package.json file ----------
+For run devlopment files:
+npm run dev
+
+For run production files:
+npm run build
+
+
+
+
+
+
