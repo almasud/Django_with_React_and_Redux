@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getMyApps } from "../../actions/myApps";
+import { getMyApps, deleteMyApp } from "../../actions/myApps";
 
 export class MyApps extends Component {
   static propTypes = {
-    myApps: PropTypes.array.isRequired
+    myApps: PropTypes.array.isRequired,
+    getMyApps: PropTypes.func.isRequired,
+    deleteMyApp: PropTypes.func.isRequired
   };
 
   componentDidMount() {
@@ -27,12 +29,17 @@ export class MyApps extends Component {
           </thead>
           <tbody>
             {this.props.myApps.map(myApp => (
-              <tr key={myApp.key}>
+              <tr key={myApp.id}>
                 <td>{myApp.id}</td>
                 <td>{myApp.name}</td>
                 <td>{myApp.email}</td>
                 <td>
-                  <button className="btn btn-danger btn-sm">Button</button>
+                  <button
+                    onClick={this.props.deleteMyApp.bind(this, myApp.id)}
+                    className="btn btn-danger btn-sm"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
@@ -49,5 +56,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getMyApps }
+  { getMyApps, deleteMyApp }
 )(MyApps);
