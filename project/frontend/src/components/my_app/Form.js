@@ -22,6 +22,11 @@ export class Form extends Component {
     const { name, email, message } = this.state;
     const myApp = { name, email, message };
     this.props.addMyApp(myApp);
+    this.setState({
+      name: "",
+      email: "",
+      message: ""
+    });
   };
 
   render() {

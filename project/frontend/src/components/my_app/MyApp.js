@@ -17,22 +17,24 @@ export class MyApps extends Component {
   render() {
     return (
       <Fragment>
-        <h2>MyApp List</h2>
+        <h2> MyApp List </h2>
         <table className="table table-striped">
           <thead>
             <tr>
               <th>Id</th>
               <th>Name</th>
               <th>Email</th>
+              <th>Message</th>
               <th />
             </tr>
           </thead>
           <tbody>
             {this.props.myApps.map(myApp => (
               <tr key={myApp.id}>
-                <td>{myApp.id}</td>
-                <td>{myApp.name}</td>
-                <td>{myApp.email}</td>
+                <td> {myApp.id} </td>
+                <td> {myApp.name}</td>
+                <td> {myApp.email} </td>
+                <td> {myApp.message} </td>
                 <td>
                   <button
                     onClick={this.props.deleteMyApp.bind(this, myApp.id)}
@@ -56,5 +58,8 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getMyApps, deleteMyApp }
+  {
+    getMyApps,
+    deleteMyApp
+  }
 )(MyApps);
