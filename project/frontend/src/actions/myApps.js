@@ -1,6 +1,6 @@
 import axios from "axios";
-import { GET_MYAPPS, DELETE_MYAPP, ADD_MYAPP, GET_ERRORS } from "./types";
-import { createMessage } from "./messages";
+import { GET_MYAPPS, DELETE_MYAPP, ADD_MYAPP } from "./types";
+import { createMessage, errorMessage } from "./messages";
 
 // Get MyApps
 export const getMyApps = () => dispatch => {
@@ -12,7 +12,7 @@ export const getMyApps = () => dispatch => {
         payload: res.data
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => dispatch(errorMessage(err.response.data, err.response.status)));
 };
 
 // Delete MyApp
@@ -40,14 +40,5 @@ export const addMyApp = myApp => dispatch => {
         payload: res.data
       });
     })
-    .catch(err => {
-      const errors = {
-        msg: err.response.data,
-        status: err.response.status
-      };
-      dispatch({
-        type: GET_ERRORS,
-        payload: errors
-      });
-    });
+    .catch(err => dispatch(errorMessage(err.response.data, err.response.status)));
 };
